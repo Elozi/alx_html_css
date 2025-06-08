@@ -1,0 +1,43 @@
+/* Make body a flex container with vertical stacking */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* full viewport height */
+    margin: 0; /* remove default margin to avoid scroll issues */
+  }
+  
+  /* Make main a flex container with horizontal layout */
+  main {
+    display: flex;
+    flex-direction: row;
+    flex: auto; /* allow main to grow/shrink and fill available space */
+    min-height: 0; /* ensure flex children can shrink properly */
+  }
+  
+  /* article takes 2/3 of main width */
+  article {
+    flex: 2;
+    overflow-y: auto;
+    padding: 1em; /* optional, for spacing */
+    min-width: 0; /* allow shrinking inside flex container */
+  }
+  
+  /* aside takes 1/3 of main width */
+  aside {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1em; /* optional */
+    min-width: 0; /* allow shrinking inside flex container */
+  }
+  @media (max-width: 800px) {
+    body.works_on_smartphone {
+      display: block;
+    }
+    body.works_on_smartphone main {
+      display: block;
+    }
+    header .right {
+      float: none;
+    }
+  }
+  
